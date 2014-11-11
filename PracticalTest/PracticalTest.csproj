@@ -52,6 +52,8 @@
   <ItemGroup>
     <Compile Include="IPracticalOne.cs" />
     <Compile Include="IPracticalTwo.cs" />
+    <Compile Include="PracticalOne.cs" />
+    <Compile Include="PracticalTwo.cs" />
     <Compile Include="PracticalTwoTest.cs" />
     <Compile Include="PracticalOneTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
