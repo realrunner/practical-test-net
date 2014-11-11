@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -14,22 +13,30 @@ namespace PracticalTest
         public PracticalTwoTest()
         {
             //TODO: Instantiate your implementation
-            _practicalTwo = null; //new PracticalTwo();
+            _practicalTwo = new PracticalTwo();
         }
 
         [TestMethod]
         public void NamesOfAllAncestorsTest()
         {
             IPerson person = GetFamilyTree();
-            Console.WriteLine(person);
             var ancestors = _practicalTwo.NamesOfAllAncestors(person);
+            
+            Assert.AreEqual(36, ancestors.Length);
+            Assert.IsFalse(ancestors.Contains("Sue Kiplagat"));
+            Assert.IsTrue(ancestors.Contains("Pat Kiplagat"));
+            Assert.IsTrue(ancestors.Contains("Kim Kipsang"));
+            Assert.IsTrue(ancestors.Contains("Kim Tergat"));
+            Assert.IsTrue(ancestors.Contains("Mickey Wilson"));
         }
 
 
         [TestMethod]
         public void ModeHairColorOfAllAncestors()
         {
-           
+            IPerson person = GetFamilyTree();
+            var modeHair = _practicalTwo.ModeHairColorOfAllAncestors(person);
+            Assert.AreEqual("white", modeHair);
         }
 
 
@@ -48,7 +55,7 @@ namespace PracticalTest
         IEnumerable<string> GetNextHairColor()
         {
             var hairColors = new[] {"brown", "blond", "red", "white", "black"};
-            for (int index=0;;index++)
+            for (int index=3;;index++)
             {
                 if (index >= hairColors.Length)
                 {
@@ -74,7 +81,7 @@ namespace PracticalTest
                 (from lname in lastNames
                 from fname in firstNames
                 select new Person {Name = string.Format("{0} {1}", fname, lname), HairColor = nextHairColor() }
-                ).ToArray();
+                ).Concat(new []{new Person{Name="Mickey Wilson", HairColor = nextHairColor()}}).ToArray();
             var children = new Queue<Person>(people);
 
             for (int i = 1; (i + 1) < people.Length; i += 2)
