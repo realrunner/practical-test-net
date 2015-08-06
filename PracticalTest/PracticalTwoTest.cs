@@ -13,7 +13,7 @@ namespace PracticalTest
         public PracticalTwoTest()
         {
             //TODO: Instantiate your implementation
-            _practicalTwo = new PracticalTwo();
+            _practicalTwo = null; //new PracticalTwo();
         }
 
         [TestMethod]
@@ -54,8 +54,8 @@ namespace PracticalTest
 
         IEnumerable<string> GetNextHairColor()
         {
-            var hairColors = new[] {"brown", "blond", "red", "white", "black"};
-            for (int index=3;;index++)
+            var hairColors = new[] {"brown", "blond", "red", "white", "black", "green", "purple"};
+            for (int index=1;;index++)
             {
                 if (index >= hairColors.Length)
                 {
