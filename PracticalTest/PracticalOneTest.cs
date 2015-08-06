@@ -10,7 +10,7 @@ namespace PracticalTest
         public PracticalOneTest()
         {
             //TODO: Instantiate your implementation
-            _practicalOne = null; //new PracticalOne();
+            _practicalOne = new PracticalOne();
         }
 
         [TestMethod]

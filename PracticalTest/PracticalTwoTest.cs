@@ -13,7 +13,7 @@ namespace PracticalTest
         public PracticalTwoTest()
         {
             //TODO: Instantiate your implementation
-            _practicalTwo = null; //new PracticalTwo();
+            _practicalTwo = new PracticalTwo();
         }
 
         [TestMethod]
@@ -36,7 +36,7 @@ namespace PracticalTest
         {
             IPerson person = GetFamilyTree();
             var modeHair = _practicalTwo.ModeHairColorOfAllAncestors(person);
-            Assert.AreEqual("white", modeHair);
+            Assert.AreEqual("blond", modeHair);
         }
 
 
